@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtmlbv2kp2b4t"
-path="res://.godot/imported/level_1.png-01264cfd5997a719d4e3be9dd40c3b39.ctex"
+uid="uid://ovbqb3pfvxo8"
+path="res://.godot/imported/Speaker-0.png-acf8e28680cebd4cf08855cb206ad4bd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/level_1.png"
-dest_files=["res://.godot/imported/level_1.png-01264cfd5997a719d4e3be9dd40c3b39.ctex"]
+source_file="res://sprites/icons/Speaker-0.png"
+dest_files=["res://.godot/imported/Speaker-0.png-acf8e28680cebd4cf08855cb206ad4bd.ctex"]
 
 [params]
 

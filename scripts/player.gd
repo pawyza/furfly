@@ -7,6 +7,8 @@ var jump_strength : int = 0
 
 @onready var animation_tree : AnimationTree = $AnimationTree
 
+@export var shader_color_level : float = 1
+
 enum STATES { IDLE, CHARGE, JUMP, FLY, LAND, DEAD, CATCH_RIGHT, CATCH_LEFT, CATCH_IDLE_RIGHT, CATCH_IDLE_LEFT, CATCH_JUMP_RIGHT, CATCH_JUMP_LEFT, CATCH_CHARGE_RIGHT, CATCH_CHARGE_LEFT }
 var last_state : STATES
 var current_state : STATES
@@ -19,6 +21,7 @@ func _process(delta):
 	animation_manager()
 	state_machine_process()
 	capture_events()
+	shader_apply()
 
 func _physics_process(delta):
 	state_machine_physics_process()
@@ -74,7 +77,7 @@ func state_machine_physics_process():
 			check_if_on_ground()
 			flying_check()
 		STATES.LAND:
-			pass
+			land()
 		STATES.DEAD:
 			pass
 		STATES.CATCH_RIGHT:
@@ -164,6 +167,8 @@ var triggered_jump_direction : DIRECTIONS
 
 func jump_release():
 	triggered_jump_direction = last_direction
+	if $Jump_timeout.is_stopped():
+		$Jump_timeout.start()
 
 func jump():
 	uncatch()
@@ -171,13 +176,11 @@ func jump():
 	
 	var direction : Vector2
 	if triggered_jump_direction == DIRECTIONS.LEFT:
-		direction = Vector2(-3, -5)
+		direction = Vector2(-3, -6)
 	elif triggered_jump_direction == DIRECTIONS.RIGHT:
-		direction = Vector2(3, -5)
+		direction = Vector2(3, -6)
 	elif triggered_jump_direction == DIRECTIONS.UP:
-		direction = Vector2(0, -7)
-	print("jump")
-	print(jump_strength)
+		direction = Vector2(0, -6)
 	apply_central_impulse(direction * jump_strength)
 	jump_strength = 0
 	current_state = STATES.FLY
@@ -197,22 +200,30 @@ func _on_land_checker_timeout():
 	else:
 		$Land_checker.start()
 
+func land():
+	if $Land_timeout.is_stopped():
+		$Land_timeout.start()
+
 func landed():
 	current_state = STATES.IDLE
 
 func catch():
 	linear_velocity = Vector2(0, 0)
 	gravity_scale = 0.0
+	if $Catch_timeout.is_stopped():
+		$Catch_timeout.start()
 	
 func uncatch():
 	gravity_scale = 1.0
 
-func catch_idle():
+func catched_idle():
 	if current_state == STATES.CATCH_RIGHT:
 		current_state = STATES.CATCH_IDLE_RIGHT
 	elif current_state == STATES.CATCH_LEFT:
 		current_state = STATES.CATCH_IDLE_LEFT
 
+func shader_apply():
+	$Cat.material.set_shader_parameter("color_level", shader_color_level)
 
 #### old code
 

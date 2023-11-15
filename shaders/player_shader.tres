@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://duduq56xsqgg5"]
+
+[ext_resource type="Shader" path="res://shaders/player.gdshader" id="1_hwkq2"]
+
+[resource]
+shader = ExtResource("1_hwkq2")
+shader_parameter/color_level = 1.0

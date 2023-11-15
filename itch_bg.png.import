@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtmlbv2kp2b4t"
-path="res://.godot/imported/level_1.png-01264cfd5997a719d4e3be9dd40c3b39.ctex"
+uid="uid://de4bghj8umarj"
+path="res://.godot/imported/itch_bg.png-7a2a3102e5a338a6d40057a34d2b6ebd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/level_1.png"
-dest_files=["res://.godot/imported/level_1.png-01264cfd5997a719d4e3be9dd40c3b39.ctex"]
+source_file="res://itch_bg.png"
+dest_files=["res://.godot/imported/itch_bg.png-7a2a3102e5a338a6d40057a34d2b6ebd.ctex"]
 
 [params]
 

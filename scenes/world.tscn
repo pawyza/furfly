@@ -1,146 +1,836 @@
-[gd_scene load_steps=18 format=3 uid="uid://c1udr8ld0vnqt"]
+[gd_scene load_steps=61 format=3 uid="uid://c1udr8ld0vnqt"]
 
-[ext_resource type="Texture2D" uid="uid://ce84s54pdy04j" path="res://sprites/level_1.png" id="1_mysup"]
-[ext_resource type="PhysicsMaterial" uid="uid://bs0poupr6y0v" path="res://materials/mat_default.tres" id="2_hrn0s"]
+[ext_resource type="Texture2D" uid="uid://dlrgxpwm8eqab" path="res://sprites/menu.png" id="1_l8l6n"]
+[ext_resource type="Texture2D" uid="uid://dtmlbv2kp2b4t" path="res://sprites/level_1.png" id="1_mysup"]
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_rkt7j"]
+[ext_resource type="PhysicsMaterial" uid="uid://bs0poupr6y0v" path="res://materials/default_material.tres" id="2_32juc"]
 [ext_resource type="PackedScene" uid="uid://b1mjrf1t7x2i1" path="res://scenes/player.tscn" id="2_wqn3j"]
+[ext_resource type="PhysicsMaterial" uid="uid://st8g8lbcby3" path="res://materials/walls_material.tres" id="3_6hosm"]
+[ext_resource type="Shader" path="res://shaders/crt.gdshader" id="4_j65e1"]
+[ext_resource type="FontFile" uid="uid://bac1ug7i7dxpm" path="res://fonts/Kaph_Font_1_10/OpenType (.otf)/Kaph-Regular.otf" id="5_iimh0"]
+[ext_resource type="Texture2D" uid="uid://ovbqb3pfvxo8" path="res://sprites/icons/Speaker-0.png" id="8_ysukm"]
+[ext_resource type="Texture2D" uid="uid://bj2t7xwac6ptn" path="res://sprites/icons/Speaker-Crossed.png" id="9_lkkl6"]
+[ext_resource type="StyleBox" uid="uid://df16ota0ghiu2" path="res://toggle_style.tres" id="10_07en2"]
+[ext_resource type="StyleBox" uid="uid://5ojsrnpeb6pl" path="res://toggle_style_pressed.tres" id="11_5d5kd"]
+[ext_resource type="StyleBox" uid="uid://cwtr4cvigfxqn" path="res://toggle_style_focus.tres" id="12_h2o3k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gkrj6"]
+size = Vector2(150.75, 266)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uisjc"]
+size = Vector2(150.75, 266)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aa60s"]
+size = Vector2(438.375, 117)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kjbje"]
+size = Vector2(370, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bf17a"]
+size = Vector2(415, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cwgcy"]
-size = Vector2(648, 327)
+size = Vector2(648, 300)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gnl7c"]
-size = Vector2(323, 1150)
+size = Vector2(304, 1150)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3xl74"]
-size = Vector2(287, 1150)
+size = Vector2(265, 1150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cqo5o"]
+size = Vector2(291, 17.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j3m0x"]
-size = Vector2(372, 63)
+size = Vector2(290.188, 16.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_557fh"]
-size = Vector2(262, 193)
+size = Vector2(144, 134)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lwgdq"]
-size = Vector2(187, 23)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j68bj"]
+size = Vector2(141, 137)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x1hgl"]
+size = Vector2(134, 18.3125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xmbi7"]
+size = Vector2(134, 18.3125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5dcr7"]
+size = Vector2(134, 17.875)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wwck8"]
-size = Vector2(236, 31)
+size = Vector2(172, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fe27u"]
+size = Vector2(106.5, 2.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x6ydi"]
+size = Vector2(66, 3)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mx6k6"]
-size = Vector2(25, 270)
+size = Vector2(12.5, 19.7188)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvq5x"]
-size = Vector2(25, 270)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dkklq"]
+size = Vector2(12.5, 134)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_513eu"]
-size = Vector2(24, 163)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_anoo4"]
+size = Vector2(29, 219)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohmla"]
+size = Vector2(29, 219)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6rqqw"]
-size = Vector2(15, 1092)
+size = Vector2(29, 208.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nu4df"]
-size = Vector2(13, 1087)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kxrwp"]
+size = Vector2(29, 176.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ry5x"]
+size = Vector2(6, 192.125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ghjh"]
+size = Vector2(614, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_711jx"]
-size = Vector2(567, 22)
+size = Vector2(139.126, 29)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3daql"]
-size = Vector2(113, 20)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1fq6t"]
+size = Vector2(288.5, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mkws2"]
+size = Vector2(289, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yhaau"]
+size = Vector2(142, 18.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ekyln"]
+size = Vector2(132, 16.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vw0lt"]
+size = Vector2(132, 16.625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qe6vc"]
+size = Vector2(132, 16.625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nhjst"]
+size = Vector2(172, 7.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rgf42"]
+size = Vector2(64, 2.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qhvr6"]
+size = Vector2(106, 2.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2n6jv"]
+bg_color = Color(0, 0, 0, 0.823529)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 80
+corner_radius_top_right = 80
+corner_radius_bottom_right = 80
+corner_radius_bottom_left = 80
+
+[sub_resource type="ImageTexture" id="ImageTexture_uahp8"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_3i5sp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0md5k"]
+shader = ExtResource("4_j65e1")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.248
+shader_parameter/scanlines_width = 0.052
+shader_parameter/grille_opacity = 0.075
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = true
+shader_parameter/roll_speed = -2.0
+shader_parameter/roll_size = 20.0
+shader_parameter/roll_variation = 3.615
+shader_parameter/distort_intensity = 0.008
+shader_parameter/noise_opacity = 0.132
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.074
+shader_parameter/aberration = 0.01
+shader_parameter/brightness = 1.19
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.31
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.775
+shader_parameter/vignette_opacity = 0.19
+
+[sub_resource type="Animation" id="Animation_y7mie"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Level_1/CanvasLayer/ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Level_1/CanvasLayer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ew0n7"]
+resource_name = "menu_exit"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Level_1/CanvasLayer/ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"menu_exit"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Level_1/CanvasLayer:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5m373"]
+_data = {
+"RESET": SubResource("Animation_y7mie"),
+"menu_exit": SubResource("Animation_ew0n7")
+}
+
+[sub_resource type="Animation" id="Animation_0u55w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu_canvas/MarginContainer/Mute:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Menu_canvas/MarginContainer/Unmute:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_rd274"]
+resource_name = "mute"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu_canvas/MarginContainer/Mute:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_g4nyl"]
+resource_name = "unmute"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu_canvas/MarginContainer/Unmute:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3kfyu"]
+_data = {
+"RESET": SubResource("Animation_0u55w"),
+"mute": SubResource("Animation_rd274"),
+"unmute": SubResource("Animation_g4nyl")
+}
 
 [node name="World" type="Node2D"]
 texture_filter = 1
 position = Vector2(324, 576)
+script = ExtResource("1_rkt7j")
+
+[node name="Menu" type="Node2D" parent="."]
+
+[node name="Level_sprite" type="Sprite2D" parent="Menu"]
+position = Vector2(-14, 6.10352e-05)
+scale = Vector2(0.532407, 0.5)
+texture = ExtResource("1_l8l6n")
+
+[node name="LevelBorders" type="StaticBody2D" parent="Menu"]
+collision_mask = 0
+physics_material_override = ExtResource("3_6hosm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Menu/LevelBorders"]
+position = Vector2(-249, -443)
+shape = SubResource("RectangleShape2D_gkrj6")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Menu/LevelBorders"]
+position = Vector2(248, -443)
+shape = SubResource("RectangleShape2D_uisjc")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Menu/LevelBorders"]
+position = Vector2(0, -301)
+shape = SubResource("RectangleShape2D_aa60s")
+
+[node name="LevelGround" type="StaticBody2D" parent="Menu"]
+collision_layer = 5
+collision_mask = 0
+physics_material_override = ExtResource("2_32juc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Menu/LevelGround"]
+position = Vector2(2, -351)
+shape = SubResource("RectangleShape2D_kjbje")
+debug_color = Color(0.827451, 0.392157, 0.137255, 0.419608)
+
+[node name="NextLevelTrigger" type="Area2D" parent="Menu"]
+position = Vector2(0, -571)
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Menu/NextLevelTrigger"]
+position = Vector2(0.5, -2)
+shape = SubResource("RectangleShape2D_bf17a")
+debug_color = Color(0.937255, 0.219608, 0.290196, 0.419608)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Menu"]
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu/CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 400
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 300
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu/CanvasLayer/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("5_iimh0")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "[center]JUMP OUT OF THE BOX![/center]
+
+[wave amp=50.0 freq=5.0 connected=1][center]HOLD [color=DARK_ORANGE]UP KEY[/color] TO JUMP![/center][/wave]
+"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Menu/CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 400
+theme_override_constants/margin_top = 1000
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu/CanvasLayer/MarginContainer2"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("5_iimh0")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "[right][color=DARK_ORANGE]ESC[/color][color=DARK_GRAY] - options/hints[/color][/right]
+
+[right][color=DARK_ORANGE]M[/color][color=DARK_GRAY] - mute[/color][/right]"
+
+[node name="ColorRect" type="ColorRect" parent="Menu/CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+offset_right = 648.0
+offset_bottom = 1152.0
+color = Color(1, 1, 1, 0)
 
 [node name="Level_1" type="Node2D" parent="."]
+process_mode = 4
+visible = false
 
 [node name="Level_sprite" type="Sprite2D" parent="Level_1"]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_mysup")
 
 [node name="LevelBorders" type="StaticBody2D" parent="Level_1"]
+visible = false
 position = Vector2(0, 543)
 collision_mask = 0
-physics_material_override = ExtResource("2_hrn0s")
+physics_material_override = ExtResource("3_6hosm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level_1/LevelBorders"]
-position = Vector2(0, 127.5)
+position = Vector2(0, 141)
 shape = SubResource("RectangleShape2D_cwgcy")
 debug_color = Color(1, 0.47451, 0.509804, 0.419608)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Level_1/LevelBorders"]
-position = Vector2(446.5, -543)
+position = Vector2(456, -543)
 shape = SubResource("RectangleShape2D_gnl7c")
 debug_color = Color(1, 0.47451, 0.509804, 0.419608)
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Level_1/LevelBorders"]
-position = Vector2(-425.5, -543)
+position = Vector2(-436.5, -543)
 shape = SubResource("RectangleShape2D_3xl74")
 debug_color = Color(1, 0.47451, 0.509804, 0.419608)
 
 [node name="LevelPlatforms" type="StaticBody2D" parent="Level_1"]
+visible = false
 collision_mask = 0
-physics_material_override = ExtResource("2_hrn0s")
+physics_material_override = ExtResource("3_6hosm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level_1/LevelPlatforms"]
-position = Vector2(-138, 205.5)
+position = Vector2(156.5, 284.625)
+shape = SubResource("RectangleShape2D_cqo5o")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Level_1/LevelPlatforms"]
+position = Vector2(156.094, 524.25)
 shape = SubResource("RectangleShape2D_j3m0x")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Level_1/LevelPlatforms"]
-position = Vector2(-194, 78.5)
+position = Vector2(233, 206)
 shape = SubResource("RectangleShape2D_557fh")
 
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Level_1/LevelPlatforms"]
+position = Vector2(-233.5, 464.5)
+shape = SubResource("RectangleShape2D_j68bj")
+
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Level_1/LevelPlatforms"]
-position = Vector2(201.5, -134.5)
-shape = SubResource("RectangleShape2D_lwgdq")
+position = Vector2(38, -137.063)
+shape = SubResource("RectangleShape2D_x1hgl")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Level_1/LevelPlatforms"]
+position = Vector2(236, -41.8438)
+shape = SubResource("RectangleShape2D_xmbi7")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Level_1/LevelPlatforms"]
+position = Vector2(76, 58.75)
+shape = SubResource("RectangleShape2D_5dcr7")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Level_1/LevelPlatforms"]
-position = Vector2(-182, -196.5)
+position = Vector2(-218, -224)
 shape = SubResource("RectangleShape2D_wwck8")
 
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Level_1/LevelPlatforms"]
+position = Vector2(-5, -381.75)
+shape = SubResource("RectangleShape2D_fe27u")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Level_1/LevelPlatforms"]
+position = Vector2(-179, -311.5)
+shape = SubResource("RectangleShape2D_x6ydi")
+
 [node name="LevelCatchables" type="StaticBody2D" parent="Level_1"]
+visible = false
 collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level_1/LevelCatchables"]
-position = Vector2(-5.5, 372)
+position = Vector2(11.25, 284.141)
 shape = SubResource("RectangleShape2D_mx6k6")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Level_1/LevelCatchables"]
-position = Vector2(-224.5, 372)
-shape = SubResource("RectangleShape2D_wvq5x")
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Level_1/LevelCatchables"]
+position = Vector2(12, 523)
+shape = SubResource("RectangleShape2D_mx6k6")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Level_1/LevelCatchables"]
-position = Vector2(-173, -99.5)
-shape = SubResource("RectangleShape2D_513eu")
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Level_1/LevelCatchables"]
+position = Vector2(13, 57.2813)
+shape = SubResource("RectangleShape2D_mx6k6")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Level_1/LevelCatchables"]
+position = Vector2(139, 56.5625)
+shape = SubResource("RectangleShape2D_mx6k6")
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="Level_1/LevelCatchables"]
+position = Vector2(162, 205)
+shape = SubResource("RectangleShape2D_dkklq")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Level_1/LevelCatchables"]
+position = Vector2(173, -42)
+shape = SubResource("RectangleShape2D_mx6k6")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="Level_1/LevelCatchables"]
+position = Vector2(102, -137)
+shape = SubResource("RectangleShape2D_mx6k6")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="Level_1/LevelCatchables"]
+position = Vector2(-26, -137)
+shape = SubResource("RectangleShape2D_mx6k6")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Level_1/LevelCatchables"]
-position = Vector2(287.5, -30)
-shape = SubResource("RectangleShape2D_6rqqw")
+position = Vector2(273, 403.5)
+shape = SubResource("RectangleShape2D_anoo4")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Level_1/LevelCatchables"]
-position = Vector2(-280.5, -31.5)
-shape = SubResource("RectangleShape2D_nu4df")
+position = Vector2(40, 403.5)
+shape = SubResource("RectangleShape2D_ohmla")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Level_1/LevelCatchables"]
+position = Vector2(40, 171.25)
+shape = SubResource("RectangleShape2D_6rqqw")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Level_1/LevelCatchables"]
+position = Vector2(39, -38.875)
+shape = SubResource("RectangleShape2D_kxrwp")
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="Level_1/LevelCatchables"]
+position = Vector2(272, 50)
+shape = SubResource("RectangleShape2D_kxrwp")
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="Level_1/LevelCatchables"]
+position = Vector2(-3, -479.938)
+shape = SubResource("RectangleShape2D_4ry5x")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level_1/LevelCatchables"]
+polygon = PackedVector2Array(77, -304, -86, -305, -58, -382, 48, -382)
 
 [node name="LevelGround" type="StaticBody2D" parent="Level_1"]
-collision_layer = 4
+visible = false
+collision_layer = 5
 collision_mask = 0
+physics_material_override = ExtResource("2_32juc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level_1/LevelGround"]
-position = Vector2(1.5, 518)
+position = Vector2(-1, 546)
+shape = SubResource("RectangleShape2D_2ghjh")
+debug_color = Color(0.862745, 0.360784, 0, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Level_1/LevelGround"]
+position = Vector2(-233.563, 408.5)
 shape = SubResource("RectangleShape2D_711jx")
 debug_color = Color(0.862745, 0.360784, 0, 0.419608)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Level_1/LevelGround"]
-position = Vector2(-8.5, 184)
-shape = SubResource("RectangleShape2D_3daql")
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Level_1/LevelGround"]
+position = Vector2(156.25, 523)
+shape = SubResource("RectangleShape2D_1fq6t")
 debug_color = Color(0.862745, 0.360784, 0, 0.419608)
 
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Level_1/LevelGround"]
+position = Vector2(156.5, 283)
+shape = SubResource("RectangleShape2D_mkws2")
+debug_color = Color(0.862745, 0.360784, 0, 0.419608)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Level_1/LevelGround"]
+position = Vector2(233, 146.75)
+shape = SubResource("RectangleShape2D_yhaau")
+debug_color = Color(0.862745, 0.360784, 0, 0.419608)
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Level_1/LevelGround"]
+position = Vector2(76, 55.75)
+shape = SubResource("RectangleShape2D_ekyln")
+debug_color = Color(0.862745, 0.360784, 0, 0.419608)
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Level_1/LevelGround"]
+position = Vector2(236, -44.3125)
+shape = SubResource("RectangleShape2D_vw0lt")
+debug_color = Color(0.862745, 0.360784, 0, 0.419608)
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Level_1/LevelGround"]
+position = Vector2(38, -139)
+shape = SubResource("RectangleShape2D_qe6vc")
+debug_color = Color(0.862745, 0.360784, 0, 0.419608)
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Level_1/LevelGround"]
+position = Vector2(-219, -225.75)
+shape = SubResource("RectangleShape2D_nhjst")
+debug_color = Color(0.862745, 0.360784, 0, 0.419608)
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Level_1/LevelGround"]
+position = Vector2(-179, -312.375)
+shape = SubResource("RectangleShape2D_rgf42")
+debug_color = Color(0.862745, 0.360784, 0, 0.419608)
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="Level_1/LevelGround"]
+position = Vector2(-5, -382.25)
+shape = SubResource("RectangleShape2D_qhvr6")
+debug_color = Color(0.862745, 0.360784, 0, 0.419608)
+
+[node name="SpawnPoint" type="Node2D" parent="Level_1"]
+visible = false
+position = Vector2(-237, 362)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Level_1"]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Level_1/CanvasLayer"]
+offset_right = 648.0
+offset_bottom = 1152.0
+
 [node name="Level_2" type="Node2D" parent="."]
+visible = false
 
 [node name="Level_3" type="Node2D" parent="."]
+visible = false
 
 [node name="Level_4" type="Node2D" parent="."]
+visible = false
 
 [node name="Level_5" type="Node2D" parent="."]
+visible = false
 
 [node name="Player" parent="." instance=ExtResource("2_wqn3j")]
-position = Vector2(41, 484)
+position = Vector2(0, -389)
+shader_color_level = 0.0
+
+[node name="Menu_canvas" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu_canvas"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_top = 400
+theme_override_constants/margin_right = 150
+theme_override_constants/margin_bottom = 400
+
+[node name="Mute" type="TextureRect" parent="Menu_canvas/MarginContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("8_ysukm")
+
+[node name="Unmute" type="TextureRect" parent="Menu_canvas/MarginContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("9_lkkl6")
+
+[node name="Menu" type="MarginContainer" parent="Menu_canvas"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 200
+
+[node name="PanelContainer" type="PanelContainer" parent="Menu_canvas/Menu"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2n6jv")
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu_canvas/Menu/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu_canvas/Menu/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer_0" type="MarginContainer" parent="Menu_canvas/Menu/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu_canvas/Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer_0"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu_canvas/Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer_0/HBoxContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(42, 400)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("5_iimh0")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center][font_size=40]Control Hints[/font_size][/center]
+
+[center][color=DARK_ORANGE]Up arrow[/color] - hold to charge a jump[/center]
+
+[center][color=DARK_ORANGE]left/right arrow[/color] - hold to choose direction[/center]
+
+[center][color=DARK_ORANGE]Space[/color] - press to grab some of surfaces, release key to release surface[/center]
+
+"
+
+[node name="MarginContainer_1" type="MarginContainer" parent="Menu_canvas/Menu/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu_canvas/Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer_1"]
+layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="Menu_canvas/Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer_1/HBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_icons/checked = SubResource("ImageTexture_uahp8")
+theme_override_styles/normal = ExtResource("10_07en2")
+theme_override_styles/pressed = ExtResource("11_5d5kd")
+theme_override_styles/disabled = ExtResource("10_07en2")
+theme_override_styles/hover = ExtResource("10_07en2")
+theme_override_styles/hover_pressed = ExtResource("11_5d5kd")
+theme_override_styles/focus = ExtResource("12_h2o3k")
+button_pressed = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu_canvas/Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer_1/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("5_iimh0")
+theme_override_font_sizes/normal_font_size = 42
+bbcode_enabled = true
+text = "[center]CRT shader[/center]"
+
+[node name="MarginContainer_2" type="MarginContainer" parent="Menu_canvas/Menu/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu_canvas/Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer_2"]
+layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="Menu_canvas/Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer_2/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_icons/checked = SubResource("ImageTexture_3i5sp")
+theme_override_styles/normal = ExtResource("10_07en2")
+theme_override_styles/pressed = ExtResource("11_5d5kd")
+theme_override_styles/disabled = ExtResource("10_07en2")
+theme_override_styles/hover = ExtResource("10_07en2")
+theme_override_styles/hover_pressed = ExtResource("11_5d5kd")
+theme_override_styles/focus = ExtResource("12_h2o3k")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu_canvas/Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer_2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("5_iimh0")
+theme_override_font_sizes/normal_font_size = 42
+bbcode_enabled = true
+text = "[center]MUTE[/center]"
+
+[node name="MarginContainer_3" type="MarginContainer" parent="Menu_canvas/Menu/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CRT" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CRT"]
+material = SubResource("ShaderMaterial_0md5k")
+offset_right = 648.0
+offset_bottom = 1152.0
+mouse_filter = 2
+
+[node name="LevelManagerAnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Menu")
+libraries = {
+"": SubResource("AnimationLibrary_5m373")
+}
+
+[node name="MenuAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3kfyu")
+}
+
+[connection signal="body_shape_entered" from="Menu/NextLevelTrigger" to="." method="_on_next_level_trigger_body_shape_entered"]
+[connection signal="toggled" from="Menu_canvas/Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer_1/HBoxContainer/CheckBox" to="." method="_on_crt_check_box_toggled"]
+[connection signal="toggled" from="Menu_canvas/Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer_2/HBoxContainer/CheckBox" to="." method="_on_mute_check_box_toggled"]
